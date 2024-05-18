@@ -8,8 +8,9 @@ class Miroir:
 
     def analyser_chaine(self, chaine: str) -> str:
         miroir = chaine[::-1]
-        salutation = self.langue.saluer()
-        acquittement = self.langue.acquitter()
+        heure_actuelle = self.horloge.heure_actuelle()
+        salutation = self.langue.saluer(heure_actuelle)
+        acquittement = self.langue.acquitter(heure_actuelle)
         if chaine == miroir:
             felicitation = self.langue.feliciter()
             return f"{salutation} {miroir} {felicitation} {acquittement}"
