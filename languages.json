@@ -1,7 +1,8 @@
-[
-    {
+{
+    "en": {
         "name": "English",
         "greeting_morning": "Good morning !",
+        "greeting_afternoon": "Good afternoon !",
         "greeting_evening": "Good evening !",
         "goodbye": "Goodbye",
         "palindrome_response": "Well said!",
@@ -9,9 +10,10 @@
         "exit_word": "exit",
         "mirrored_text": "Mirrored text"
     },
-    {
-        "name": "French",
+    "fr": {
+        "name": "Français",
         "greeting_morning": "Bonjour !",
+        "greeting_afternoon": "Bonne après-midi !",
         "greeting_evening": "Bonsoir !",
         "goodbye": "Au revoir",
         "palindrome_response": "Bien dit !",
@@ -19,4 +21,4 @@
         "exit_word": "quitter",
         "mirrored_text": "Text inversé"
     }
-]
+}
