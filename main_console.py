@@ -1,10 +1,10 @@
 from miroir import Miroir
 from langue import LangueDynamique
 from horloge import HorlogeSysteme
-from messages_loader import load_messages
+from message_loader import load_messages
 
 def main():
-    messages = load_messages('messages.json')
+    messages = load_messages('languages.json')
     language_choice = input("Choose your language (English/French): ").strip().capitalize()
     langue_messages = next((item for item in messages if item["name"] == language_choice), None)
 
