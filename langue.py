@@ -1,30 +1,30 @@
-from abc import ABC, abstractmethod
+import json
 
-class Langue(ABC):
-    @abstractmethod
-    def saluer(self, heure: int) -> str:
-        pass
+class Langue():
 
-    @abstractmethod
-    def feliciter(self) -> str:
-        pass
+    def init(self, langue) -> None:
+        self.langue = langue
+        self.traductions = self.chargement_de_la_traduction()
 
-    @abstractmethod
-    def acquitter(self, heure: int) -> str:
-        pass
+    def saluer(self, heure):
+        if 5 <= heure <= 12:
+            return self.recuperation_de_la_traduction('greeting_morning')
+        elif 12 < heure <= 17:
+            return self.recuperation_de_la_traduction('greet_afternoon')
+        else :
+            return self.recuperation_de_la_traduction('greeting_evening')
 
-class LangueDynamique(Langue):
-    def __init__(self, messages: dict):
-        self.messages = messages
 
-    def saluer(self, heure: int) -> str:
-        if 6 <= heure < 18:
-            return self.messages["greeting_morning"]
-        else:
-            return self.messages["greeting_evening"]
+    def feliciter(self):
+        return self.recuperation_de_la_traduction('palindrome_response')
 
-    def feliciter(self) -> str:
-        return self.messages["palindrome_response"]
-    
-    def acquitter(self) -> str:
-        return self.messages["goodbye"]
+    def acquitter(self):
+        return self.recuperation_de_la_traduction('goodbye')
+
+    def chargement_de_la_traduction(self):
+        with open('languages.json', 'r', encoding='utf-8') as file:
+            traductions = json.load(file)
+        return traductions.get(self.langue, traductions['en'])
+
+    def recuperation_de_la_traduction(self, cle):
+        return self.traductions.get(cle, "")
