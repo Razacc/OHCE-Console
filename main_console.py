@@ -1,30 +1,33 @@
 from miroir import Miroir
-from langue import LangueDynamique
-from horloge import HorlogeSysteme
-from message_loader import load_messages
+from langue import Langue
+from horloge import Horloge
+import locale
 
 def main():
-    messages = load_messages('languages.json')
-    language_choice = input("Choose your language (English/French): ").strip().capitalize()
-    langue_messages = next((item for item in messages if item["name"] == language_choice), None)
 
-    if not langue_messages:
-        print("Invalid language choice.")
-        return
+    systemelanguage, encoding = locale.getlocale()
+    lang_code = systeme_language.split('')[0]
+    print(systemelanguage)
 
-    langue = LangueDynamique(langue_messages)
-    horloge = HorlogeSysteme()
+    langue = Langue(langcode)
+    horloge = Horloge()
     miroir = Miroir(langue, horloge)
-    heure_actuelle = horloge.heure_actuelle()
+
+    heureactuelle = horloge.heureactuelle()
     salutation = langue.saluer(heure_actuelle)
+    acquitter = langue.acquitter()
+    texte_entree = langue.recuperation_de_la_traduction('enter_text_prompt')
+    texte_sortie = langue.recuperation_de_la_traduction('exit_word')
     print(salutation)
-    chaine = input(langue_messages["enter_text_prompt"])
-    
-    while chaine != langue_messages["exit_word"]:
+
+    while True:
+        chaine = input(f"{texte_entree}").strip()
+        if chaine == texte_sortie:
+             print(acquitter)
+             break
         resultat = miroir.analyser_chaine(chaine)
         print(resultat)
-        chaine = input(langue_messages["enter_text_prompt"])
-    print(langue_messages["goodbye"])
 
-if __name__ == "__main__":
+
+if __name == "__main":
     main()
