@@ -1,6 +1,6 @@
 [
     {
-        "name": "en",
+        "name": "English",
         "greeting_morning": "Good morning !",
         "greeting_evening": "Good evening !",
         "goodbye": "Goodbye",
@@ -10,7 +10,7 @@
         "mirrored_text": "Mirrored text"
     },
     {
-        "name": "fr",
+        "name": "French",
         "greeting_morning": "Bonjour !",
         "greeting_evening": "Bonsoir !",
         "goodbye": "Au revoir",

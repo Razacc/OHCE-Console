@@ -10,8 +10,8 @@ class Miroir:
         miroir = chaine[::-1]
         heure_actuelle = self.horloge.heure_actuelle()
         salutation = self.langue.saluer(heure_actuelle)
-        acquittement = self.langue.acquitter(heure_actuelle)
+
         if chaine == miroir:
             felicitation = self.langue.feliciter()
-            return f"{salutation} {miroir} {felicitation} {acquittement}"
-        return f"{salutation} {miroir} {acquittement}"
+            return f"{salutation} {miroir} {felicitation}"
+        return f"{salutation} {miroir}"

@@ -10,7 +10,7 @@ class Langue(ABC):
         pass
 
     @abstractmethod
-    def acquitter(self, heure: int) -> str:
+    def acquitter(self) -> str:
         pass
 
 class LangueDynamique(Langue):
