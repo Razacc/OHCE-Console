@@ -2,7 +2,7 @@ import json
 
 class Langue():
 
-    def init(self, langue) -> None:
+    def __init__(self, langue) -> None:
         self.langue = langue
         self.traductions = self.chargement_de_la_traduction()
 

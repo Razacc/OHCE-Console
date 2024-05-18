@@ -2,7 +2,7 @@ from langue import Langue
 from horloge import Horloge
 
 class Miroir:
-    def init(self, langue: Langue, horloge: Horloge):
+    def __init__(self, langue: Langue, horloge: Horloge):
         self.langue = langue
         self.horloge = horloge
 
