@@ -1,11 +1,9 @@
-from abc import ABC, abstractmethod
 from datetime import datetime
 
-class Horloge(ABC):
-    @abstractmethod
-    def heure_actuelle(self) -> datetime:
+class Horloge:
+    def heure_actuelle(self) -> int:
         pass
 
 class HorlogeSysteme(Horloge):
-    def heure_actuelle(self) -> datetime:
-        return datetime.now()
+    def heure_actuelle(self) -> int:
+        return datetime.now().hour
