@@ -1,8 +1,10 @@
 from langue import Langue
+from horloge import Horloge
 
 class Miroir:
-    def __init__(self, langue: Langue):
+    def __init__(self, langue: Langue, horloge: Horloge):
         self.langue = langue
+        self.horloge = horloge
 
     def analyser_chaine(self, chaine: str) -> str:
         miroir = chaine[::-1]
