@@ -13,26 +13,18 @@ class Langue(ABC):
     def acquitter(self, heure: int) -> str:
         pass
 
-class LangueFrancais(Langue):
+class LangueDynamique(Langue):
+    def __init__(self, messages: dict):
+        self.messages = messages
+
     def saluer(self, heure: int) -> str:
-        if 6 <= heure < 12:
-            return "Bonjour"
-        elif 12 <= heure < 18:
-            return "Bon après-midi"
-        elif 18 <= heure < 22:
-            return "Bonsoir"
+        if 6 <= heure < 18:
+            return self.messages["greeting_morning"]
         else:
-            return "Bonne nuit"
-    
+            return self.messages["greeting_evening"]
+
     def feliciter(self) -> str:
-        return "Bien dit!"
+        return self.messages["palindrome_response"]
     
-    def acquitter(self, heure: int) -> str:
-        if 6 <= heure < 12:
-            return "Bonne journée"
-        elif 12 <= heure < 18:
-            return "Bon après-midi"
-        elif 18 <= heure < 22:
-            return "Bonne soirée"
-        else:
-            return "Bonne nuit"
+    def acquitter(self) -> str:
+        return self.messages["goodbye"]
