@@ -1,19 +1,22 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from miroir import Miroir
-from langue import LangueFrancais
-from horloge import HorlogeSysteme
+from langue import Langue
+from horloge import Horloge
 
 app = Flask(__name__)
 
-@app.route('/analyse', methods=['POST'])
+@app.route('/api', methods=['POST'])
 def analyse():
-    langue = LangueFrancais()
-    horloge = HorlogeSysteme()
+    systeme_language = request.headers.get('Accept-Language', 'en')
+    lang_code = systeme_language.split(',')[0]
+
+    langue = Langue(lang_code)
+    horloge = Horloge()
     miroir = Miroir(langue, horloge)
     
-    data = request.data.decode('utf-8')
+    data = request.json.get('text', '')
     resultat = miroir.analyser_chaine(data)
-    return resultat
+    return jsonify(resultat)
 
 if __name__ == "__main__":
     app.run(debug=True)
