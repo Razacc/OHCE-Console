@@ -14,7 +14,7 @@ def main():
 
     heure_actuelle = horloge.heure_actuelle()
     salutation = langue.saluer(heure_actuelle)
-    acquitter = langue.acquitter()
+    acquitter = langue.acquitter(heure_actuelle)
     texte_entree = langue.recuperation_de_la_traduction('enter_text_prompt')
     texte_sortie = langue.recuperation_de_la_traduction('exit_word')
     print(salutation)
