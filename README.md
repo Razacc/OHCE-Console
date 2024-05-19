@@ -4,7 +4,8 @@ Application Python permettant de renvoyer une chaine de caractères à l'envers.
 
 ## Schéma d'architecture
 
-TODO
+<img src="Schéma_architecture.png" alt="Schéma_architecture" />
+
 
 ## Prérequis
 
